@@ -1,2 +1,3 @@
 # BangumiAnimeScraper
 完完全全的半成品，实际上这个项目大概无法继续下去，不改变框架的话对于搜索页面的id提取通过xpath做是不可能的
+详情请见master branch
