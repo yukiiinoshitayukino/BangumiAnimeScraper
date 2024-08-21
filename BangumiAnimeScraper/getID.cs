@@ -39,7 +39,12 @@ public class BangumiSearch
     {
         var htmlDoc = new HtmlAgilityPack.HtmlDocument();
         htmlDoc.LoadHtml(htmlContent);
-        string Animeid= htmlDoc.DocumentNode.SelectSingleNode("//a[@class=['1']/@href").InnerText.Trim();
+        var firstItem = htmlDoc.DocumentNode.SelectSingleNode("//li[contains(@class, 'item') and @id]");
+
+        string id = firstItem.GetAttributeValue("id", string.Empty);
+        string cleanId = id.Split('_').Last();
+        return cleanId;
+
 
 
 
@@ -62,4 +67,6 @@ public class BangumiSearch
         //    return null;
         //}
     }
+}
+
 

@@ -7,9 +7,12 @@ class Program
     {
         Form1 form= new Form1();
         
-        Application.Run(form);
+         Application.Run(form);
         //获取用户的输入信息
-        string animeName = form.GetUserInput();
+        //string animeName = form.GetUserInput();
+        string animeName = "虫师 动画";
+
+
 
 
         BangumiSearch GetId=new BangumiSearch();
@@ -22,8 +25,7 @@ class Program
 
         var scraperService = new ScraperService(htmlParser);
 
-       // string subjectId = "464376";  示例 ID，根据实际情况获取
-        
+       
 
         var animeInfo = await scraperService.ScrapeAnimeInfoAsync(subjectId);
         string FirstUrl = "https:";
@@ -35,14 +37,12 @@ class Program
         string imageUrlString = TEST.ToString();
 
 
-        if (animeInfo != null)
-        {
             Console.WriteLine($"Title: {animeInfo.Title}");
             // 其他信息输出...
 
             // 下载封面图片
-            string imagePath = "C:\\Users\\夹击妹抖\\Documents\\anime_cover1.jpg";
+            string imagePath = $"C:\\Users\\夹击妹抖\\Documents\\{animeName}.jpg";
             await ImageDownloader.DownloadImageAsync(imageUrlString, imagePath);
-        }
+        
     }
 }

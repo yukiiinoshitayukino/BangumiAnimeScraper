@@ -30,13 +30,12 @@ public class HtmlParser : IHtmlParser
 
 
         animeInfo.Title = htmlDoc.DocumentNode.SelectSingleNode("//title").InnerText.Trim();
-        
-     
+        animeInfo.CoverImageUrl = htmlDoc.DocumentNode.SelectSingleNode("//a[@class='thickbox cover']/@href").GetAttributeValue("href", string.Empty).Trim();
+
+
         animeInfo.Episodes = htmlDoc.DocumentNode.SelectSingleNode("//li/span[@class='tip'][1]").InnerText.Trim();
-        animeInfo.CoverImageUrl = htmlDoc.DocumentNode.SelectSingleNode("//a[@class='thickbox cover']/@href").InnerText.Trim();
-        // 其他字段解析同理...
-        //我问了ai大人才知道的。。。。。。
-        //同理个毛啊，我不懂html。。。。。
+        
+        
 
         return animeInfo;
     }
